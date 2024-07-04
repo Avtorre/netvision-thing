@@ -8,10 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors : {
+        'netvision-bg-dark': '#14191d',
+        'netvision-gradient-start': '#545C62',
+        'netvision-gradient-end': '#414851',
+        'netvision-gradient2-start': '#343C42',
+        'netvision-gradient2-end': '#212831',
       },
     },
   },
