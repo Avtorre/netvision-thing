@@ -1,22 +1,11 @@
 'use client'
 
+import { ListType } from "@/lib/types"
 import { useState } from "react"
-
-type ListItem = {
-  listId: number,
-  name: string,
-  content: [{name: string, ip: string, port: number}]
-}
+import ListItem from "./ListItem"
 
 const List = () => {
-  let txt = 'some text here '
-  let filler: string[] = [`${txt}`]
-  for (let i = 0; i < 150; i++) {
-    filler.push(txt) 
-  }
-
-  const [list, setList] = useState<ListItem[]>([{listId: 0, name : 'test', content: [{name: 'example', ip: '123.45.67.89', port: 777} ]}])
-  const [isActive, setIsActve] = useState(false)
+  const [list, setList] = useState<ListType[]>([{listId: 0, name : 'test', status: 1, content: [{uuid: 'example', ip: '123.45.67.89', port: 777, status: 1} ]}, {listId: 1, name : 'test1', status: 1, content: [{uuid: 'example1', ip: '123.45.67.90', port: 7771, status: 1} ]}])
 /**   const clickHandler = (listId: number) => {
     let i = document.getElementById((listId).toString())
     if (i?.style.maxHeight) {
@@ -27,19 +16,22 @@ const List = () => {
     }}
   } */
 
-  const clickHandler = () => {
-    setIsActve(!isActive)
-  }
+ 
 
   return (
-    <div className="w-5/6 mx-auto">
+    <div className="w-5/6 mx-auto mt-5 text-white">
+      <table className="w-full">
+        <thead>
+          <tr>
+            <th className="w-1/6">UUID</th>
+            <th className="w-1/3">IP</th>
+            <th className="w-1/6">PORT</th>
+            <th className="w-1/6">Status</th>
+          </tr>
+        </thead>
+      </table>
       {list?.map((item) => { return(
-        <div key={item.listId} >
-          <button onClick={clickHandler} className="h-14 w-full bg-gradient-to-b from-netvision-gradient-start to-netvision-gradient-end p-2 rounded-xl px-5 text-white text-left pl-12">
-            {item.name}
-          </button>
-          {isActive && <div className="bg-gradient-to-b from-netvision-gradient2-start to-netvision-gradient2-end mt-4 rounded-xl">{filler}</div>}
-        </div>
+        <ListItem key={item.listId} item={item}/>
       )})}
     </div>
   )
