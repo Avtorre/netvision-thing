@@ -9,5 +9,7 @@ export type Complex = {
   uuid: string, 
   ip: string, 
   port: number,
+  login: string,
+  password: string,
   status: number
 }

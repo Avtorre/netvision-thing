@@ -5,7 +5,7 @@ import { useState } from "react"
 import ListItem from "./ListItem"
 
 const List = () => {
-  const [list, setList] = useState<ListType[]>([{listId: 0, name : 'test', status: 1, content: [{uuid: 'example', ip: '123.45.67.89', port: 777, status: 1} ]}, {listId: 1, name : 'test1', status: 1, content: [{uuid: 'example1', ip: '123.45.67.90', port: 7771, status: 1} ]}])
+  const [list, setList] = useState<ListType[]>([{listId: 0, name : 'test', status: 1, content: [{uuid: 'example', ip: '123.45.67.89', port: 777, login: '', password: '', status: 1} ]}, {listId: 1, name : 'test1', status: 1, content: [{uuid: 'example1', ip: '123.45.67.90', port: 7771, login: '', password: '', status: 1} ]}])
 /**   const clickHandler = (listId: number) => {
     let i = document.getElementById((listId).toString())
     if (i?.style.maxHeight) {

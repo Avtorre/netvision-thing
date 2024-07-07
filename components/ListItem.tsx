@@ -38,7 +38,7 @@ const ListItem = (props: {item:ListType}) => {
           <tbody>
             {props.item.content.map((i) => {
               return(
-                <tr>
+                <tr key={props.item.listId}>
                   <td></td>
                   <td></td>
                   <td></td>
