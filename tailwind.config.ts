@@ -13,7 +13,7 @@ const config: Config = {
         'netvision-gradient-start': '#545C62',
         'netvision-gradient-end': '#414851',
         'netvision-gradient2-start': '#343C42',
-        'netvision-gradient2-end': '#292E39',
+        'netvision-gradient2-end': '#212831',
       },
     },
   },
