@@ -23,8 +23,13 @@ export const deleteGroup = async (listId: string) => {
 
 export const getCameras = async () => {
     const resp: AxiosResponse = await $host.get('/cameras')
-    return [...resp.data]
+    return resp.data
 } 
+
+export const getDetailedCamera = async(uuid:string) => {
+    const resp: AxiosResponse = await $host.get(`/cameras/${uuid}`)
+    return resp.data
+}
 
 export const createCamera = async (camera: Complex, listId: string) => {
     const resp: AxiosResponse = await $host.post('/cameras', {

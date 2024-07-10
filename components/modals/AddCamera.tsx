@@ -54,7 +54,7 @@ const AddCamera = ( props: {show: boolean, onHide: () => void, newList: createLi
         <Modal.Body>
           <Form>
             <Form.Group>
-              <Form.Label className="mr-2">Название : </Form.Label>
+              <Form.Label className="mr-2">Наименование : </Form.Label>
               <Form.Control type="text" onChange={(e) => setNewCamera(newCamera)}/>
             </Form.Group>
             <Form.Group>

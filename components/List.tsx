@@ -65,10 +65,10 @@ const list = Array.from(useSelector((state: RootState) => state.list))
       <table className="text-white w-full text-center mb-2">
         <thead>
           <tr className="divide-x-2 table-fixed">
-            <th className="w-1/3">Название</th>
+            <th className="w-1/3">Наименование</th>
             <th className="w-1/4">IP</th>
             <th className="w-1/12">Port</th>
-            <th className="w-3/12">Статус</th>
+            <th className="w-1/5">Статус</th>
             <th className="!border-l-0"></th>
           </tr>
         </thead>

@@ -8,6 +8,7 @@ import { removeList } from "@/state/listStore/listSlice"
 import AddCamera from "./modals/AddCamera"
 import { deleteGroup } from "@/http/someAPI"
 import AddCameraToList from "./modals/AddCameraToList"
+import CameraInfo from "./modals/CameraInfo"
 
 
 const ListItem = (props: {item:ListType}) => {
@@ -52,7 +53,7 @@ const ListItem = (props: {item:ListType}) => {
           {(props.item.content?.length) ?
           <tbody>
             {props.item.content.map((i) => 
-                <ComplexItem key={i.ip + ':' + i.port} complex={i}/>
+              <ComplexItem key={i.ip + ':' + i.port} complex={i}/>
             )}
           </tbody>
           :<tbody>

@@ -20,7 +20,7 @@ export const useFetchAll = async () => {
   }) 
  // console.log('newGroup', fetchedGroups)
   })
-  await getCameras().then(data => {data.map((i) => {
+  await getCameras().then(data => {data.map((i:CamerasData) => {
     //dispatch(setCameras(i))
     fetchedCameras.push(i)
    // console.log('camera', i)

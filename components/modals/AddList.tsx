@@ -62,7 +62,7 @@ const AddList = ( props: {show: boolean, onHide: () => void}) => {
             <table className="w-full">
               <thead className="text-center">
                 <tr>
-                <th className="w-1/3">Name</th>
+                <th className="w-1/3">Наименование</th>
                   <th className="w-1/3">IP</th>
                   <th className="w-1/3">PORT</th>
                   
