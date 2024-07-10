@@ -37,3 +37,9 @@ export const createCamera = async (camera: Complex, listId: string) => {
     return resp.data
 } 
 
+export const deleteCamera = async (uuid: string) => {
+    const resp: AxiosResponse = await $host.delete(`/cameras/${uuid}`)
+    return resp
+} 
+
+

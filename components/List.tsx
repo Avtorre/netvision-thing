@@ -63,14 +63,15 @@ const list = Array.from(useSelector((state: RootState) => state.list))
   return (
     <div className="w-5/6 mx-auto mt-7">
       <table className="text-white w-full text-center mb-2">
-        <tbody>
+        <thead>
           <tr className="divide-x-2 table-fixed">
-            <td className="w-4/12">UUID</td>
-            <td className="w-2/6">IP</td>
-            <td className="w-1/12">Port</td>
-            <td className="w-3/12">Status</td>
+            <th className="w-1/3">Название</th>
+            <th className="w-1/4">IP</th>
+            <th className="w-1/12">Port</th>
+            <th className="w-3/12">Статус</th>
+            <th className="!border-l-0"></th>
           </tr>
-        </tbody>
+        </thead>
       </table>
       {list?.map((item) => { return(
         <ListItem key={item.listId} item={item}/>

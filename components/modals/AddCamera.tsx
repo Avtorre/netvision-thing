@@ -33,7 +33,7 @@ const AddCamera = ( props: {show: boolean, onHide: () => void, newList: createLi
   const onCancel = () =>{
     props.onHide()
     setNewCamera({
-      uuid:' props.newList.content.length', 
+      uuid:'', 
       ip: '', 
       port: 80,
       login: '',
@@ -54,7 +54,7 @@ const AddCamera = ( props: {show: boolean, onHide: () => void, newList: createLi
         <Modal.Body>
           <Form>
             <Form.Group>
-              <Form.Label className="mr-2">Name : </Form.Label>
+              <Form.Label className="mr-2">Название : </Form.Label>
               <Form.Control type="text" onChange={(e) => setNewCamera(newCamera)}/>
             </Form.Group>
             <Form.Group>
@@ -66,11 +66,11 @@ const AddCamera = ( props: {show: boolean, onHide: () => void, newList: createLi
               <Form.Control type="number" className="remove-arrow" onChange={(e) => setNewCamera({...newCamera, port:parseInt(e.target.value)})}/>
             </Form.Group>
             <Form.Group>
-              <Form.Label className="mr-2">Login : </Form.Label>
+              <Form.Label className="mr-2">Логин : </Form.Label>
               <Form.Control type="text" onChange={(e) => setNewCamera({...newCamera, login:e.target.value})}/>
             </Form.Group>
             <Form.Group>
-              <Form.Label className="mr-2">Password : </Form.Label>
+              <Form.Label className="mr-2">Пароль : </Form.Label>
               <Form.Control type="password" autoComplete="none" onChange={(e) => setNewCamera({...newCamera, password:e.target.value})}/>
             </Form.Group>
           </Form>

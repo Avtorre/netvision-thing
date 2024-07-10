@@ -12,6 +12,7 @@ import AddCameraToList from "./modals/AddCameraToList"
 
 const ListItem = (props: {item:ListType}) => {
   const [AddCameraModal, setAddCameraModal] = useState(false)
+  const [editListModal, setEditListModal] = useState(false)
   const [isActive, setIsActve] = useState(false)
   const list: ListType[] = Array.from(useSelector((state: RootState) => state.list))
   const dispatch = useDispatch()
@@ -31,12 +32,12 @@ const ListItem = (props: {item:ListType}) => {
         {props.item.name}
       </button>
       <div className="w-1/6 inline-flex items-center mx-auto min-w-fit">
-        Status:
+        Статус:
         <div className={`ml-1 w-fit ${props.item.status.color} p-1 rounded-xl px-3`}>
           {props.item.status.text}
         </div>
       </div>
-      <div className="w-1/6 inline-flex">
+      <div className="w-1/6 inline-flex min-w-fit">
         <button className="w-1/3 inline ml-auto">
           <img src="/icons/pen-light.svg" width={40} alt="trash" className="inline"/>
         </button>
@@ -55,10 +56,10 @@ const ListItem = (props: {item:ListType}) => {
             )}
           </tbody>
           :<tbody>
-            <tr>
-              <td className="w-full">nihuya</td>
-            </tr>
-          </tbody>
+              <tr>
+                <td className="w-full">Список пуст</td>
+              </tr>
+           </tbody>
           }
       </table>
       <button onClick={() => {setAddCameraModal(true)}} className="mt-2 block w-1/5 min-w-fit mx-auto bg-gradient-to-b from-netvision-gradient-start to-netvision-gradient-end p-2 rounded-xl px-5">

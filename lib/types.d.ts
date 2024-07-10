@@ -25,7 +25,6 @@ export type createList = {
     content: Complex[]
 }
 
-
 export type Complex = {
     uuid: string, 
     ip: string, 
