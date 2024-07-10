@@ -11,8 +11,8 @@ import { setGroups } from "@/state/groupStore/groupSlice"
 import { setCameras } from "@/state/cameraStore/cameraSlice"
 import { setList } from "@/state/listStore/listSlice"
 import { group } from "console"
-import GroupItem from "./GroupItem"
 import { useFetchAll } from "@/hooks/useFetchAll"
+import { setInterval } from "timers"
 
 
 
@@ -52,10 +52,12 @@ useEffect( () => {
   const getLists = async ( ) => {
     dispatch(setList( await useFetchAll()))
   }
-  getLists() 
+  getLists()
+  setInterval(getLists, 5000) 
   //console.log('alo', groups)
   //console.log('list', cameras)
 },[])
+
 const list = Array.from(useSelector((state: RootState) => state.list))
 
   return (

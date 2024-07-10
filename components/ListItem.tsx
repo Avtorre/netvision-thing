@@ -1,12 +1,13 @@
 'use client'
-import { ListType } from "@/lib/types"
-import { useState } from "react"
+import { CamerasData, ListType } from "@/lib/types"
+import { useEffect, useState } from "react"
 import ComplexItem from "./ComplexItem"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/state/store"
 import { removeList } from "@/state/listStore/listSlice"
 import AddCamera from "./modals/AddCamera"
 import { deleteGroup } from "@/http/someAPI"
+import AddCameraToList from "./modals/AddCameraToList"
 
 
 const ListItem = (props: {item:ListType}) => {
@@ -17,20 +18,23 @@ const ListItem = (props: {item:ListType}) => {
   const clickHandler = () => {
     setIsActve(!isActive)
   }
-  const deleteHandler = () => {
-    deleteGroup(props.item.listId)
-    location.reload()
+  const deleteHandler = async () => {
+    deleteGroup(props.item.listId).then(() => location.reload())
+    //location.reload()
     //dispatch(removeList(props.item.listId))
   }
 
   return (
     <div key={props.item.listId} className="mb-3">
-    <div className="h-14 w-full bg-gradient-to-b from-netvision-gradient-start to-netvision-gradient-end rounded-xl text-white px-10">
-      <button onClick={clickHandler} className="h-full align-middle w-2/3 text-left inline">
+    <div className="h-14 w-full bg-gradient-to-b from-netvision-gradient-start to-netvision-gradient-end rounded-xl text-white px-10 flex">
+      <button onClick={clickHandler} className="h-full w-2/3 min-w-fit text-left inline">
         {props.item.name}
       </button>
-      <div className="w-1/6 inline-flex">
-        Status: 123 Not Ok
+      <div className="w-1/6 inline-flex items-center mx-auto min-w-fit">
+        Status:
+        <div className={`ml-1 w-fit ${props.item.status.color} p-1 rounded-xl px-3`}>
+          {props.item.status.text}
+        </div>
       </div>
       <div className="w-1/6 inline-flex">
         <button className="w-1/3 inline ml-auto">
@@ -57,15 +61,15 @@ const ListItem = (props: {item:ListType}) => {
           </tbody>
           }
       </table>
-      <button onClick={() => {setAddCameraModal(true)}} className="mt-2 block w-1/5 mx-auto bg-gradient-to-b from-netvision-gradient-start to-netvision-gradient-end p-2 rounded-xl px-5">
+      <button onClick={() => {setAddCameraModal(true)}} className="mt-2 block w-1/5 min-w-fit mx-auto bg-gradient-to-b from-netvision-gradient-start to-netvision-gradient-end p-2 rounded-xl px-5">
         <img src="/icons/plus-light.svg" alt="list" width={30} className="inline"/>
-        <p className="inline ml-2">Добавить камеру</p>
+        <p className="inline ml-2">Добавить комплекс</p>
       </button>
     </div>}
-    
+    <AddCameraToList show={AddCameraModal} onHide={() => {setAddCameraModal(false)}} newList={props.item}/>
   </div>
   )
 }
 
 export default ListItem
-//<AddCamera show={AddCameraModal} onHide={() => {setAddCameraModal(false)}} newList={props.item}/>
+// <AddCamera show={AddCameraModal} onHide={() => {setAddCameraModal(false)}} newList={props.item}/>

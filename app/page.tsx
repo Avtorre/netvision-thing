@@ -1,4 +1,3 @@
-'use client'
 import List from "@/components/List";
 import Image from "next/image";
 

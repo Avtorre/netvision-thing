@@ -14,7 +14,7 @@ export type ListItem = {
 export type ListType = {
     listId: string,
     name: string,
-    status?: number,
+    status: {text: string, color: string},
     content: CamerasData[]
 }
 
@@ -32,7 +32,7 @@ export type Complex = {
     port: number,
     login: string,
     password: string,
-    status: number,
+    status?: number,
     group_uuid?: string
 }
 
@@ -55,6 +55,6 @@ export type CamerasDetailedData = {
     port: number,
     login: string,
     password: string,
-    status: number,
+    status?: number,
     group_uuid?: string
 }

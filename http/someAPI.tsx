@@ -16,6 +16,7 @@ export const createGroup = async (name: string) => {
 
 export const deleteGroup = async (listId: string) => {
     const resp: AxiosResponse = await $host.delete(`/groups/${listId}`)
+    return resp
 } 
 
 /////////////////////////////////////////////////////////
@@ -28,11 +29,10 @@ export const getCameras = async () => {
 export const createCamera = async (camera: Complex, listId: string) => {
     const resp: AxiosResponse = await $host.post('/cameras', {
         "ip": camera.ip,
-        "port": camera.port,
+        "port": 80,
         "login": camera.login,
         "password": camera.password,
-        "status": 1,
-        "group_uuid": listId
+        "group_uuid": listId,
     })
     return resp.data
 } 

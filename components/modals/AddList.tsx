@@ -26,10 +26,8 @@ const AddList = ( props: {show: boolean, onHide: () => void}) => {
     //console.log('newList', newList)
     //dispatch(addList(newList))
     //console.log('list', list)
-    await createGroup(newList.name).then(resp => {newList.content.map((camera) => {
-      createCamera(camera, resp.uuid)
-    })})
-    
+    await createGroup(newList.name).then(resp => {newList.content.map((camera) => {createCamera(camera, resp.uuid)})})
+    location.reload()
     setNewList({listId: '', name: '', status: 0, content: []})
     //dispatch(setList(await useFetchAll()))
     props.onHide()
@@ -64,9 +62,10 @@ const AddList = ( props: {show: boolean, onHide: () => void}) => {
             <table className="w-full">
               <thead className="text-center">
                 <tr>
+                <th className="w-1/3">Name</th>
                   <th className="w-1/3">IP</th>
                   <th className="w-1/3">PORT</th>
-                  <th className="w-1/3">Status</th>
+                  
                 </tr>
               </thead>
             </table>
@@ -77,9 +76,10 @@ const AddList = ( props: {show: boolean, onHide: () => void}) => {
                       {newList.content.map((camera) => {
                         return (
                           <tr key={camera.ip + ':' + camera.port} className="w-full text-center">
+                            <td className="w-1/3">Complex name</td>
                             <td className="w-1/3">{camera.ip}</td>
                             <td className="w-1/3">{camera.port}</td>
-                            <td className="w-1/3">{camera.status}</td>
+                            
                           </tr>
                         )
                       })}
@@ -91,7 +91,7 @@ const AddList = ( props: {show: boolean, onHide: () => void}) => {
 
             <button className="bg-gradient-to-b from-netvision-gradient-start to-netvision-gradient-end w-fit p-2 rounded-xl px-4 mt-2 self-center" onClick={() => {setAddCameraModal(true)}}>
               <img src="/icons/plus-light.svg" alt="list" width={30} className="inline"/>
-              <p className="inline ml-2">Добавить камеру</p>
+              <p className="inline ml-2">Добавить комплекс</p>
             </button>
             <AddCamera show={AddCameraModal} onHide={() => {setAddCameraModal(false)}} newList={newList} setNewList={setNewList}/>
           </div>
@@ -107,3 +107,5 @@ const AddList = ( props: {show: boolean, onHide: () => void}) => {
 }
 
 export default AddList
+
+//<td className="w-1/3">{camera.status}</td>

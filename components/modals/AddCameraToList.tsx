@@ -3,7 +3,7 @@ import { CamerasDetailedData, Complex, createList, ListType } from "@/lib/types"
 import { Dispatch, SetStateAction, useState } from "react"
 import { Button, Form, Modal } from "react-bootstrap"
 
-const AddCamera = ( props: {show: boolean, onHide: () => void, newList: createList, setNewList?: Dispatch<SetStateAction<createList>>}) => {
+const AddCameraToList = ( props: {show: boolean, onHide: () => void, newList: ListType}) => {
   const [newCamera, setNewCamera] = useState<Complex>({
     uuid: 'props.newList.content.length', 
     ip: '', 
@@ -15,11 +15,7 @@ const AddCamera = ( props: {show: boolean, onHide: () => void, newList: createLi
 
   const submitHandler = () => {
     console.log('camera ', newCamera)
-    if (props.setNewList){
-      props.setNewList({...props.newList, content:[...props.newList.content, newCamera]})
-    } else {
-      //createCamera(newCamera, )
-    }
+    createCamera(newCamera, props.newList.listId)
     props.onHide()
     setNewCamera({
       uuid: '', 
@@ -51,12 +47,9 @@ const AddCamera = ( props: {show: boolean, onHide: () => void, newList: createLi
         <Modal.Header closeButton>
           <Modal.Title>Добавить комплекс</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           <Form>
-            <Form.Group>
-              <Form.Label className="mr-2">Name : </Form.Label>
-              <Form.Control type="text" onChange={(e) => setNewCamera(newCamera)}/>
-            </Form.Group>
             <Form.Group>
               <Form.Label className="mr-2">IP : </Form.Label>
               <Form.Control type="text" onChange={(e) => setNewCamera({...newCamera, ip:e.target.value})}/>
@@ -85,7 +78,7 @@ const AddCamera = ( props: {show: boolean, onHide: () => void, newList: createLi
   )
 }
 
-export default AddCamera
+export default AddCameraToList
 
 /**
  *             <Form.Group>
