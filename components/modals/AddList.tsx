@@ -1,13 +1,13 @@
 'use client'
 import { useEffect, useState } from "react"
 import { Button, Form, Modal } from "react-bootstrap"
-import AddCamera from "./AddCamera"
+import AddCamera from "./AddComplex"
 import { Complex, createList, ListType } from "@/lib/types"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/state/store"
 import { addList, setList } from "@/state/listStore/listSlice"
 import { createSelector } from "@reduxjs/toolkit"
-import { createCamera, createGroup } from "@/http/someAPI"
+import { createComplex, createGroup } from "@/http/someAPI"
 import { useFetchAll } from "@/hooks/useFetchAll"
 import { useRouter } from "next/router"
 
@@ -26,7 +26,7 @@ const AddList = ( props: {show: boolean, onHide: () => void}) => {
     //console.log('newList', newList)
     //dispatch(addList(newList))
     //console.log('list', list)
-    await createGroup(newList.name).then(resp => {newList.content.map((camera) => {createCamera(camera, resp.uuid)})})
+    await createGroup(newList.name).then(resp => {newList.content.map((complex) => {createComplex(complex, resp.uuid)})})
     location.reload()
     setNewList({listId: '', name: '', status: 0, content: []})
     //dispatch(setList(await useFetchAll()))

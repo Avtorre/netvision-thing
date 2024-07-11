@@ -1,14 +1,14 @@
 'use client'
-import { CamerasData, ListType } from "@/lib/types"
+import { ListType } from "@/lib/types"
 import { useEffect, useState } from "react"
 import ComplexItem from "./ComplexItem"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/state/store"
 import { removeList } from "@/state/listStore/listSlice"
-import AddCamera from "./modals/AddCamera"
+import AddCamera from "./modals/AddComplex"
 import { deleteGroup } from "@/http/someAPI"
-import AddCameraToList from "./modals/AddCameraToList"
-import CameraInfo from "./modals/CameraInfo"
+import AddCameraToList from "./modals/AddComplexToList"
+import CameraInfo from "./modals/ComplexInfo"
 
 
 const ListItem = (props: {item:ListType}) => {
@@ -34,7 +34,7 @@ const ListItem = (props: {item:ListType}) => {
       </button>
       <div className="w-1/6 inline-flex items-center mx-auto min-w-fit">
         Статус:
-        <div className={`ml-1 w-fit ${props.item.status.color} p-1 rounded-xl px-3`}>
+        <div className={`ml-1 w-fit ${props.item.status.color} p-1 rounded-xl px-3 border-3 border-netvision-gradient-start`}>
           {props.item.status.text}
         </div>
       </div>

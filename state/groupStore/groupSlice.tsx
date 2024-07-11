@@ -1,5 +1,5 @@
 'use client'
-import AddCamera from "@/components/modals/AddCamera"
+import AddCamera from "@/components/modals/AddComplex"
 import { GroupsData, ListType } from "@/lib/types"
 import { createSlice } from "@reduxjs/toolkit"
 

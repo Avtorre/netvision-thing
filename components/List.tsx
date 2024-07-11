@@ -1,19 +1,18 @@
 'use client'
 import { useEffect, useState } from "react"
 import ComplexItem from "./ComplexItem"
-import { CamerasData, Complex, GroupsData, ListType } from "@/lib/types"
+import { ComplexData, Complex, GroupsData, ListType } from "@/lib/types"
 import { getCameras, getGroups } from "@/http/someAPI"
 import ListItem from "./ListItem"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/state/store"
 import { createSelector } from "@reduxjs/toolkit"
 import { setGroups } from "@/state/groupStore/groupSlice"
-import { setCameras } from "@/state/cameraStore/cameraSlice"
+import { removeComplex } from "@/state/complexStore/complexSlice"
 import { setList } from "@/state/listStore/listSlice"
 import { group } from "console"
 import { useFetchAll } from "@/hooks/useFetchAll"
 import { setInterval } from "timers"
-
 
 
 const List = () => {
@@ -27,7 +26,7 @@ const List = () => {
   }, [])*/
   const dispatch = useDispatch()
   const groups: GroupsData[] = Array.from(useSelector((state: RootState) => state.groups))
-  const cameras: CamerasData[] = Array.from(useSelector( (state: RootState) => state.cameras))
+  const cameras: ComplexData[] = Array.from(useSelector( (state: RootState) => state.cameras))
 /*  const createList = () => {
     
     groups.map( (group: GroupsData) => {
@@ -53,7 +52,7 @@ useEffect( () => {
     dispatch(setList( await useFetchAll()))
   }
   getLists()
-  setInterval(getLists, 5000) 
+  //setInterval(getLists, 5000) 
   //console.log('alo', groups)
   //console.log('list', cameras)
 },[])

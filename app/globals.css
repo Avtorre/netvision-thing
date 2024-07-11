@@ -9,5 +9,10 @@
 }
 .remove-arrow {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
+.modal-66 {
+  max-width: none !important;
+  width: 66%;
+}

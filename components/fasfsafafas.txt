@@ -1,0 +1,3 @@
+/groups
+/complexes -> [ {"ip", "port", "name", "login", "password"} ]
+/cameras -> [ {"url", "description", "id", "active"} ]

@@ -2,7 +2,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import listReducer from "./listStore/listSlice"
 import groupsReducer from "./groupStore/groupSlice"
-import camerasReducer from "./cameraStore/cameraSlice"
+import camerasReducer from "./complexStore/complexSlice"
 import { ListType } from "@/lib/types";
 
 export const store = configureStore({
