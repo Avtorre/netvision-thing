@@ -1,1 +1,1 @@
-I DEFINITELY will clear the code and delete all redundant lines and imports *Clueless*
+I DEFINITELY will clean the code and delete all redundant lines and imports *Clueless*
